@@ -5,14 +5,23 @@ import { useParams } from "react-router-dom";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 
-import { fetchArtworkById } from "../../store/artworkDetails/actions";
+import {
+  fetchArtworkById,
+  updateHearts,
+} from "../../store/artworkDetails/actions";
 import { selectArtworkDetails } from "../../store/artworkDetails/selectors";
+import { fetchArtworks } from "../../store/artworks/actions";
 
 export default function ArtDetail() {
   const { id } = useParams();
   const artwork = useSelector(selectArtworkDetails);
   const dispatch = useDispatch();
+
+  function giveHeart() {
+    dispatch(updateHearts());
+  }
   useEffect(() => {
+    dispatch(fetchArtworks());
     dispatch(fetchArtworkById(id));
   }, [dispatch, id]);
 
@@ -28,8 +37,16 @@ export default function ArtDetail() {
         alt={artwork.title}
       />
       <h4>{artwork.title}</h4>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        <p> Hearts: {artwork.hearts} </p>
+        <Button onClick={giveHeart}>Give heart</Button>
+      </div>
 
-      <p> Hearts: {artwork.hearts}</p>
       <div>
         {" "}
         <h5>Bids</h5>

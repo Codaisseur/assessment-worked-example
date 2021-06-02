@@ -14,7 +14,7 @@ export const fetchArtworks = () => {
 
     // console.log(response.data);
 
-    console.log("RESPONSE FROM SERVER", response.data.artworks);
+    console.log("RESPONSE FROM SERVER", response.data.artworks[1].hearts);
     dispatch(fetchArtworkSuccess(response.data.artworks));
   };
 };
