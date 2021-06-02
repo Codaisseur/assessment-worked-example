@@ -1,7 +1,7 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
 
-export const FETCH_ARTWORKS_SUCCESS = "FETCH_SPACES_SUCCESS";
+export const FETCH_ARTWORKS_SUCCESS = "FETCH_ARTWORKS_SUCCESS";
 
 export const fetchArtworkSuccess = (artworks) => ({
   type: FETCH_ARTWORKS_SUCCESS,
@@ -10,7 +10,7 @@ export const fetchArtworkSuccess = (artworks) => ({
 
 export const fetchArtworks = () => {
   return async (dispatch, getState) => {
-    const response = await axios.get(`${apiUrl}/`);
+    const response = await axios.get(`${apiUrl}/artworks`);
 
     // console.log(response.data);
 
