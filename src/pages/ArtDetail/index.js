@@ -43,7 +43,14 @@ export default function ArtDetail() {
           flexDirection: "row",
         }}
       >
-        <p> Hearts: {artwork.hearts} </p>
+        <p
+          style={{
+            margin: "10px",
+          }}
+        >
+          {" "}
+          Hearts: {artwork.hearts}{" "}
+        </p>
         <Button onClick={giveHeart}>Give heart</Button>
       </div>
 
