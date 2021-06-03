@@ -46,7 +46,7 @@ export default function ArtDetail() {
   const minBid =
     bids.length === 0 ? artwork.minimumBid : bids[bids.length - 1].amount + 1;
 
-  console.log(minBid);
+  // console.log(minBid);
   /**** */
 
   function submitForm(event) {

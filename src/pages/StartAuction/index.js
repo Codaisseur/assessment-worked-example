@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Jumbotron from "react-bootstrap/Jumbotron";
@@ -8,19 +8,14 @@ import Image from "react-bootstrap/Image";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 
-import {
-  selectUser,
-  selectToken,
-  selectisArtist,
-} from "../../store/user/selectors";
+import { selectToken, selectisArtist } from "../../store/user/selectors";
 
-import { showMessageWithTimeout } from "../../store/appState/actions";
+// import { showMessageWithTimeout } from "../../store/appState/actions";
 import { postArtwork } from "../../store/artworkDetails/actions";
 export default function StartAuction() {
   const isArtist = useSelector(selectisArtist);
   const token = useSelector(selectToken);
 
-  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   //console.log(bids);
 
@@ -36,7 +31,7 @@ export default function StartAuction() {
   function submitForm(event) {
     event.preventDefault();
 
-    console.log(minimumBid, title, imageUrl);
+    //console.log(minimumBid, title, imageUrl);
     dispatch(postArtwork(title, imageUrl, minimumBid));
     setTitle("");
     setMinimumBid("0");

@@ -4,11 +4,7 @@ import { selectArtworkDetails } from "./selectors";
 import { selectUser } from "../user/selectors";
 import { fetchArtworks } from "../../store/artworks/actions";
 
-import {
-  appLoading,
-  appDoneLoading,
-  showMessageWithTimeout,
-} from "../appState/actions";
+import { showMessageWithTimeout } from "../appState/actions";
 
 export const ARTWORK_DETAILS_FETCHED = "ARTWORK_DETAILS_FETCHED";
 export const HEARTS_UPDATED = "HEARTS_UPDATED";
@@ -47,7 +43,7 @@ export const updateHearts = () => {
   return async (dispatch, getState) => {
     const { id, hearts } = selectArtworkDetails(getState());
 
-    console.log(id, hearts);
+    // console.log(id, hearts);
 
     const response = await axios.patch(`${apiUrl}/artworks/${id}`, {
       hearts: hearts + 1,
@@ -55,7 +51,7 @@ export const updateHearts = () => {
 
     dispatch(heartsUpdated(response.data.artwork));
     dispatch(fetchArtworks());
-    console.log(response.data.artwork);
+    // console.log(response.data.artwork);
   };
 };
 
