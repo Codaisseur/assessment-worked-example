@@ -1,4 +1,8 @@
-import { ARTWORK_DETAILS_FETCHED, HEARTS_UPDATED } from "./actions";
+import {
+  ARTWORK_DETAILS_FETCHED,
+  HEARTS_UPDATED,
+  BID_POST_SUCCESS,
+} from "./actions";
 
 const initialState = {
   bids: [],
@@ -10,6 +14,8 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, ...payload };
     case HEARTS_UPDATED:
       return { ...state, ...payload };
+    case BID_POST_SUCCESS:
+      return { ...state, bids: [...state.bids, payload] };
     default:
       return state;
   }
