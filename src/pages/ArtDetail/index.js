@@ -9,7 +9,10 @@ import Col from "react-bootstrap/Col";
 
 import Loading from "../../components/Loading";
 
-import { showMessageWithTimeout } from "../../store/appState/actions";
+import {
+  showMessageWithTimeout,
+  setMessage,
+} from "../../store/appState/actions";
 
 import {
   fetchArtworkById,
@@ -54,7 +57,9 @@ export default function ArtDetail() {
 
     if (amount < minBid) {
       console.log("bid to low");
-      //showMessageWithTimeout("success", false, "message", 3000);
+      dispatch(
+        showMessageWithTimeout("danger", false, "Your bid is too low", 3000)
+      );
       return null;
     }
     // console.log(amount, content, imageUrl);
