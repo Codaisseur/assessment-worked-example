@@ -13,6 +13,7 @@ import {
 export const ARTWORK_DETAILS_FETCHED = "ARTWORK_DETAILS_FETCHED";
 export const HEARTS_UPDATED = "HEARTS_UPDATED";
 export const BID_POST_SUCCESS = "BID_POST_SUCCESS";
+export const ARTWORK_POST_SUCCESS = "ARTWORK_POST_SUCCESS";
 
 const artworkDetailsFetched = (artwork) => ({
   type: ARTWORK_DETAILS_FETCHED,
@@ -27,6 +28,11 @@ export const heartsUpdated = (artwork) => ({
 export const bidPostSuccess = (bid) => ({
   type: BID_POST_SUCCESS,
   payload: bid,
+});
+
+export const artworkPostSuccess = (artwork) => ({
+  type: ARTWORK_POST_SUCCESS,
+  payload: artwork,
 });
 
 export const fetchArtworkById = (id) => {
@@ -77,6 +83,40 @@ export const postBid = (amount) => {
       showMessageWithTimeout("success", false, response.data.message, 3000)
     );
     dispatch(bidPostSuccess(response.data.bid));
+    // dispatch(appDoneLoading());
+  };
+};
+
+export const postArtwork = (title, imageUrl, minimumBid) => {
+  return async (dispatch, getState) => {
+    const { token } = selectUser(getState());
+    // console.log(name, content, imageUrl);
+    // dispatch(appLoading());
+
+    const response = await axios.post(
+      `${apiUrl}/artworks/`,
+      {
+        title,
+        imageUrl,
+        minimumBid,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log("Yep!", response.data.artwork);
+    dispatch(
+      showMessageWithTimeout(
+        "success",
+        false,
+        "Artwork posted successfully",
+        3000
+      )
+    );
+    dispatch(artworkPostSuccess(response.data.bid));
     // dispatch(appDoneLoading());
   };
 };

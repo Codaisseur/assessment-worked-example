@@ -9,10 +9,7 @@ import Col from "react-bootstrap/Col";
 
 import Loading from "../../components/Loading";
 
-import {
-  showMessageWithTimeout,
-  setMessage,
-} from "../../store/appState/actions";
+import { showMessageWithTimeout } from "../../store/appState/actions";
 
 import {
   fetchArtworkById,

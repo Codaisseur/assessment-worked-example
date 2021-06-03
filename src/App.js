@@ -9,6 +9,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Artworks from "./pages/Artworks";
 import ArtDetail from "./pages/ArtDetail";
+import StartAuction from "./pages/StartAuction";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -20,11 +21,11 @@ import { Jumbotron } from "react-bootstrap";
 //     <h1>Home</h1>
 //   </Jumbotron>
 // );
-const Other = () => (
-  <Jumbotron>
-    <h1>Other</h1>
-  </Jumbotron>
-);
+// const Other = () => (
+//   <Jumbotron>
+//     <h1>Other</h1>
+//   </Jumbotron>
+// );
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={Artworks} />
-        <Route path="/other" component={Other} />
+        <Route path="/startAuction" component={StartAuction} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/artworks/:id" component={ArtDetail} />
