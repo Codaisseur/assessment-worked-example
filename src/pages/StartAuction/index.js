@@ -20,16 +20,12 @@ export default function StartAuction() {
   const isArtist = useSelector(selectisArtist);
   const token = useSelector(selectToken);
 
-  /**temp */
-
-  const minBid = 0;
-  /** */
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   //console.log(bids);
 
   const [title, setTitle] = useState("");
-  const [minimumBid, setMinimumBid] = useState(0);
+  const [minimumBid, setMinimumBid] = useState("0");
   const [imageUrl, setImageUrl] = useState("");
 
   //   useEffect(() => {
@@ -40,10 +36,10 @@ export default function StartAuction() {
   function submitForm(event) {
     event.preventDefault();
 
-    // console.log(minimumBid, content, imageUrl);
+    console.log(minimumBid, title, imageUrl);
     dispatch(postArtwork(title, imageUrl, minimumBid));
     setTitle("");
-    setMinimumBid(0);
+    setMinimumBid("0");
     setImageUrl("");
   }
 
@@ -93,8 +89,6 @@ export default function StartAuction() {
             value={minimumBid}
             onChange={(event) => setMinimumBid(event.target.value)}
             type="number"
-            placeholder={minBid}
-            min={minBid}
             required
           />
         </Form.Group>
