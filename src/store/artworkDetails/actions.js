@@ -41,17 +41,14 @@ export const fetchArtworkById = (id) => {
 
 export const updateHearts = () => {
   return async (dispatch, getState) => {
-    const { id, hearts } = selectArtworkDetails(getState());
+    const { id } = selectArtworkDetails(getState());
+    // We DON'T need to send the number of hearts to the backend
+    // the BE holds the data! so he knows what the current number of hearts is
 
-    // console.log(id, hearts);
-
-    const response = await axios.patch(`${apiUrl}/artworks/${id}`, {
-      hearts: hearts + 1,
-    });
+    const response = await axios.patch(`${apiUrl}/artworks/${id}`);
 
     dispatch(heartsUpdated(response.data.artwork));
     dispatch(fetchArtworks());
-    // console.log(response.data.artwork);
   };
 };
 
