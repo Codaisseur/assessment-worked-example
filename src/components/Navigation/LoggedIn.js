@@ -1,19 +1,20 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../store/user/actions";
 import Button from "react-bootstrap/Button";
-import { selectUser, selectisArtist } from "../../store/user/selectors";
-
 import Nav from "react-bootstrap/Nav";
+
+import { selectUser, selectIsArtist } from "../../store/user/selectors";
+import { logOut } from "../../store/user/actions";
+
 
 export default function LoggedIn() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const isArtist = useSelector(selectisArtist);
+  const isArtist = useSelector(selectIsArtist);
 
-  const loginLogoutControls = isArtist ? (
+  const loginLogoutControls = isArtist && (
     <Nav.Link href="/startAuction">Start an auction</Nav.Link>
-  ) : null;
+  );
 
   return (
     <>

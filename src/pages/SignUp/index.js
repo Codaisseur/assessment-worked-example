@@ -12,7 +12,7 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isArtist, setIsartist] = useState(false);
+  const [isArtist, setIsArtist] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
@@ -24,14 +24,12 @@ export default function SignUp() {
   }, [token, history]);
 
   function submitForm(event) {
-    event.preventDefault();
-    console.log(name, email, password, isArtist);
-
     dispatch(signUp(name, email, password, isArtist));
 
     setEmail("");
     setPassword("");
     setName("");
+    setIsArtist(false);
   }
 
   return (
@@ -66,7 +64,7 @@ export default function SignUp() {
           <Form.Label>I am an artist</Form.Label>
           <Form.Control
             value={isArtist}
-            onChange={(event) => setIsartist(!isArtist)}
+            onChange={(event) => setIsArtist(!isArtist)}
             type="checkbox"
             required
           />
