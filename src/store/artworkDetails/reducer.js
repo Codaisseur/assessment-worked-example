@@ -17,7 +17,6 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, ...payload };
     case BID_POST_SUCCESS:
       return { ...state, bids: [...state.bids, payload] };
-
     case ARTWORK_POST_SUCCESS:
       return { ...state, ...payload };
     default:

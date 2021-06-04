@@ -10,11 +10,13 @@ export const fetchArtworkSuccess = (artworks) => ({
 
 export const fetchArtworks = () => {
   return async (dispatch, getState) => {
-    const response = await axios.get(`${apiUrl}/artworks`);
+    try {
+      const response = await axios.get(`${apiUrl}/artworks`);
+      dispatch(fetchArtworkSuccess(response.data.artworks));
 
-    // console.log(response.data);
+    } catch(e) {
+      console.log(e.message);
+    }
 
-    console.log("RESPONSE FROM SERVER", response.data.artworks[1].hearts);
-    dispatch(fetchArtworkSuccess(response.data.artworks));
   };
 };

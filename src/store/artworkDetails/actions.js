@@ -56,8 +56,6 @@ export const postBid = (amount) => {
   return async (dispatch, getState) => {
     const { token } = selectUser(getState());
     const { id } = selectArtworkDetails(getState());
-    // console.log(name, content, imageUrl);
-    // dispatch(appLoading());
 
     const response = await axios.post(
       `${apiUrl}/artworks/${id}/bids`,
@@ -71,12 +69,10 @@ export const postBid = (amount) => {
       }
     );
 
-    console.log("Yep!", response.data.bid);
     dispatch(
       showMessageWithTimeout("success", false, response.data.message, 3000)
     );
     dispatch(bidPostSuccess(response.data.bid));
-    // dispatch(appDoneLoading());
   };
 };
 

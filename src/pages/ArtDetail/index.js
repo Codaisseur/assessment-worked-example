@@ -48,7 +48,6 @@ export default function ArtDetail() {
   }
 
   function submitForm(event) {
-    event.preventDefault();
     if (amount < minBid) {
       console.log("bid to low");
       dispatch(
@@ -102,6 +101,7 @@ export default function ArtDetail() {
           </p>
         ))}
       </div>
+      {/* This could have been a different component */}
       {user.token && artwork.id && (
         <Form as={Col} md={{ span: 6, offset: 3 }}>
           <Form.Group>
