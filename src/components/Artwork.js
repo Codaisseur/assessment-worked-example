@@ -16,7 +16,7 @@ export default function Artwork({ id, title, imageUrl, hearts, bidsNumb }) {
       <p> Hearts: {hearts}</p>
       <p> Bids: {bidsNumb}</p>
       <Link to={`/artworks/${id}`}>
-        <Button>Visit space</Button>
+        <Button>See Details</Button>
       </Link>
     </Jumbotron>
   );

@@ -4,34 +4,23 @@ import { useSelector, useDispatch } from "react-redux";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 
-import { selectToken, selectisArtist } from "../../store/user/selectors";
-
-// import { showMessageWithTimeout } from "../../store/appState/actions";
+import { selectToken, selectIsArtist } from "../../store/user/selectors";
 import { postArtwork } from "../../store/artworkDetails/actions";
+
 export default function StartAuction() {
-  const isArtist = useSelector(selectisArtist);
+  const isArtist = useSelector(selectIsArtist);
   const token = useSelector(selectToken);
 
   const dispatch = useDispatch();
-  //console.log(bids);
 
   const [title, setTitle] = useState("");
   const [minimumBid, setMinimumBid] = useState("0");
   const [imageUrl, setImageUrl] = useState("");
 
-  //   useEffect(() => {
-  //     dispatch(fetchArtworks());
-  //     dispatch(fetchArtworkById(id));
-  //   }, [dispatch, id]);
-
   function submitForm(event) {
-    event.preventDefault();
-
-    //console.log(minimumBid, title, imageUrl);
     dispatch(postArtwork(title, imageUrl, minimumBid));
     setTitle("");
     setMinimumBid("0");
@@ -39,7 +28,7 @@ export default function StartAuction() {
   }
 
   if (!token || !isArtist) {
-    return <div>You need to be a logged in artist to acces this page</div>;
+    return <div>You need to be a logged in as an artist to access this page</div>;
   }
   return (
     <Jumbotron
@@ -71,11 +60,11 @@ export default function StartAuction() {
             placeholder="Enter an Image url"
             required
           />
-          {imageUrl ? (
+          {imageUrl && (
             <Col className="mt-4" md={{ span: 8, offset: 2 }}>
               <Image src={imageUrl} alt="preview" thumbnail />
             </Col>
-          ) : null}
+          )}
         </Form.Group>
 
         <Form.Group>
