@@ -18,7 +18,7 @@
 | Required fields for artworks and bids are validated in models & migrations | 2      | 2    |           |
 | User, Artwork and Bid models are correctly related                         | 2      | 2    |           |
 | Seeders are present to create at least 3 artworks and 5 bids               | 2      | 2    |           |
-| Total                                                                      | 8      | 8    |           |
+| Total                                                                      | 8      | 8    |    8       |
 
 | 1. Criteria - Artworks list                                                  | Points | Self | Evaluator |
 | ---------------------------------------------------------------------------- | ------ | ---- | --------- |
@@ -27,8 +27,8 @@
 | The artworks are displayed with the number of bids they have in the database | 2      | 1    |           |
 | An array of artworks is stored and managed by redux                          | 1      | 1    |           |
 | A selectors and actions are defined in a separate files                      | 1      | 1    |           |
-| Each artwork has a `View details` button, it links to a artwork's details    | 1      | 1    |           |
-| Total                                                                        | 7      | 7    |           |
+| Each artwork has a `View details` button, it links to a artwork's details    | 1      | 1    |     0     |
+| Total                                                                        | 7      | 7    |     6     |
 
 | 2. Criteria - Artwork details                                                  | Points | Self | Evaluator |
 | ------------------------------------------------------------------------------ | ------ | ---- | --------- |
@@ -36,7 +36,7 @@
 | The artworks are displayed with a title, image and the number of hearts it has | 1      | 1    |           |
 | The bids belonging to the artwork are displayed with email and amount          | 1      | 1    |           |
 | The artwork and its bids are fetched from the server                           | 1      | 1    |           |
-| Total                                                                          | 4      | 4    |           |
+| Total                                                                          | 4      | 4    |    4      |
 
 | 3. Criteria - Giving hearts                                                                  | Points | Self | Evaluator |
 | -------------------------------------------------------------------------------------------- | ------ | ---- | --------- |
@@ -46,7 +46,7 @@
 | Clicking the `give heart` button updates the `hearts` property of an artwork in the database | 1      | 1    |           |
 | The number of hearts an artwork has is also updated in the list of artworks on `/`           | 1      | 1    |           |
 | You have to refresh to see the number of hearts update                                       | -1     | 0    |           |
-| Total                                                                                        | 5      | 5    |           |
+| Total                                                                                        | 5      | 5    |    5       |
 
 | 4. Criteria - Bidding                                                                         | Points | Self | Evaluator |
 | --------------------------------------------------------------------------------------------- | ------ | ---- | --------- |
@@ -59,7 +59,7 @@
 | The minimum value of the input for amount in the frontend is the highest bid amount + 1       | 1      | 1    |           |
 | If there are no bids yet the minimum value is the `minimumBid` value from the artwork         | 2      | 2    |           |
 | The backend validates that the new bid is the highest bid so far                              | 2      | 2    |           |
-| Total                                                                                         | 13     | 13   |           |
+| Total                                                                                         | 13     | 13   |   13        |
 
 | 5. Criteria - Posting an artwork                                        | Points | Self | Evaluator |
 | ----------------------------------------------------------------------- | ------ | ---- | --------- |
@@ -74,7 +74,7 @@
 | `userId` is not sent in the body of the request                         | 1      | 1    |           |
 | The user sees a success message if the artwork was posted successfully  | 2      | 1    |           |
 | The success message is an alert, confirm or prompt popup or console.log | -1     | 0    |           |
-| Total                                                                   | 11     | 11   |           |
+| Total                                                                   | 11     | 11   |    11       |
 
 | 6. Criteria - Signing up as an artist                                              | Points | Self | Evaluator |
 | ---------------------------------------------------------------------------------- | ------ | ---- | --------- |
@@ -83,11 +83,11 @@
 | The `signUp` action also sends a value for `isArtist` when posting to the server   | 1      | 1    |           |
 | When the checkbox is checked on signup, the user created has `isArtist: true`      | 2      | 2    |           |
 | When the checkbox is not checked on signup, the user created has `isArtist: false` | 1      | 1    |           |
-| Total                                                                              | 7      | 7    |           |
+| Total                                                                              | 7      | 7    |    7       |
 
 | 7. Criteria - Finishing up                                                 | Points | Self | Evaluator |
 | -------------------------------------------------------------------------- | ------ | ---- | --------- |
 | Student performed an accurate self assessment (max off by + or - 7 points) | 2      | 2    |           |
 | Student can reflect on their process by writing a reflection of ~200 words | 2      | 2    |           |
 | Student has regularly committed changes (at least 1 commit per feature)    | 1      | 1    |           |
-| Total                                                                      | 5      | 5    |           |
+| Total                                                                      | 5      | 5    |     5      |

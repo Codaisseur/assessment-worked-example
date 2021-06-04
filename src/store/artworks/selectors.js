@@ -1,1 +1,1 @@
-export const selectArtwkorks = (state) => state.artworks;
+export const selectArtworks = (state) => state.artworks;

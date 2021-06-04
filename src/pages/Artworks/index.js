@@ -3,15 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import Artwork from "../../components/Artwork";
 
 import { fetchArtworks } from "../../store/artworks/actions";
-import { selectArtwkorks } from "../../store/artworks/selectors";
+import { selectArtworks } from "../../store/artworks/selectors";
 
 export default function Artworks() {
   const dispatch = useDispatch();
-  const artworks = useSelector(selectArtwkorks);
+  const artworks = useSelector(selectArtworks);
 
   useEffect(() => {
     dispatch(fetchArtworks());
   }, [dispatch]);
+
   return (
     <div>
       {artworks.map((artwork) => {
